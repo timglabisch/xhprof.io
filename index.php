@@ -9,8 +9,17 @@ require __DIR__ . '/xhprof/includes/bootstrap.inc.php';
 $template			= array
 (
 	'file'			=> 'error',
-	'title'			=> NULL
+	'title'			=> NULL,
+    'base_path' => array(
+        'css' => 'public/css/',
+        'js' => 'public/js/',
+    )
 );
+
+if(isset($config['template']))
+{
+    $template = array_merge($template, $config['template']);
+}
 
 $templates			= array('requests', 'request', 'uris', 'hosts', 'function');
 
